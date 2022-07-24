@@ -7,6 +7,7 @@ import {
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Colors } from "../../styles/theme";
 
 export default function Actions({ matches }) {
   const Component = matches
@@ -25,6 +26,7 @@ export default function Actions({ matches }) {
             sx={{
               display: "flex",
               justifyContent: "center",
+              color: matches && Colors.secondary,
             }}
           >
             <ShoppingCartIcon />
@@ -42,6 +44,7 @@ export default function Actions({ matches }) {
             sx={{
               display: "flex",
               justifyContent: "center",
+              color: matches && Colors.secondary,
             }}
           >
             <FavoriteIcon />
@@ -59,6 +62,7 @@ export default function Actions({ matches }) {
             sx={{
               display: "flex",
               justifyContent: "center",
+              color: matches && Colors.secondary,
             }}
           >
             <PersonIcon />
