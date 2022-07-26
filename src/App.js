@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/system";
 import { useEffect } from "react";
 import Appbar from "./components/appbar";
 import Banner from "./components/banner";
+import Products from "./components/products";
 import Promotions from "./components/promotions";
 import theme from "./styles/theme";
 function App() {
@@ -15,9 +16,9 @@ function App() {
         <Appbar />
         <Banner />
         <Promotions />
+        <Products />
         {/* 
         title
-        products
         footer
         searchbox
         appdrawer
