@@ -5,6 +5,7 @@ import {
   BannerContent,
   BannerDescription,
   BannerImage,
+  BannerShopButton,
   BannerTitle,
 } from "../../styles/banner";
 
@@ -22,6 +23,7 @@ export default function Banner() {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates
           modi in nisi!
         </BannerDescription>
+        <BannerShopButton color="primary">Shop Now</BannerShopButton>
       </BannerContent>
     </BannerContainer>
   );
