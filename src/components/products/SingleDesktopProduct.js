@@ -12,9 +12,10 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import FitScreenIcon from "@mui/icons-material/FitScreen";
 
-export default function SingleProduct({ product, matches }) {
+export default function SingleDesktopProduct({ product, matches }) {
   return (
     <>
+        <h1>Desktop</h1>
       <Product>
         <ProductImage src={product.image} />
         <ProductMeta product={product} matches={matches} />
