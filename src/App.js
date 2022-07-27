@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/system";
 import { useEffect } from "react";
 import Appbar from "./components/appbar";
 import Banner from "./components/banner";
+import Footer from "./components/footer";
 import Products from "./components/products";
 import Promotions from "./components/promotions";
 import theme from "./styles/theme";
@@ -20,6 +21,7 @@ function App() {
           <Typography variant='h6'>Our Products</Typography>
         </Box>
         <Products />
+        <Footer />
         {/* 
         title
         footer
