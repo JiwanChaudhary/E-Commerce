@@ -7,6 +7,7 @@ import AppDrawer from "./components/drawer";
 import Footer from "./components/footer";
 import Products from "./components/products";
 import Promotions from "./components/promotions";
+import SearchBox from "./components/search";
 import { UIProvider } from "./context/ui";
 import theme from "./styles/theme";
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Products />
           <Footer />
           <AppDrawer />
+          <SearchBox />
         </UIProvider>
         {/* 
         title
