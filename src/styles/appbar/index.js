@@ -1,4 +1,4 @@
-import { Box, List, Typography } from "@mui/material";
+import { Box, IconButton, List, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Colors } from "../theme";
 import "@fontsource/montez";
@@ -31,17 +31,24 @@ export const MyList = styled(List)(({ type }) => ({
 
 
 export const ActionIconsContainerMobile = styled(Box)(() => ({
-    display: 'flex',
-    background: Colors.shaft,
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    alignItems: 'center',
-    zIndex: 99,
-    borderTop: `1px solid ${Colors.border}`
+  display: 'flex',
+  background: Colors.shaft,
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  width: '100%',
+  alignItems: 'center',
+  zIndex: 99,
+  borderTop: `1px solid ${Colors.border}`
 }));
 
 export const ActionIconsContainerDesktop = styled(Box)(() => ({
-    flexGrow: 0,
+  flexGrow: 0,
+}));
+
+export const DrawerCloseButton = styled(IconButton)(() => ({
+  position: 'absolute',
+  top: 10,
+  left: '250px',
+  zIndex: 1999,
 }));
