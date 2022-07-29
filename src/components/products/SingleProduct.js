@@ -23,7 +23,7 @@ export default function SingleProduct({ product, matches }) {
 
   return (
     <>
-      <Product>
+      <Product onClick={() => showProductDetailDialog()}>
         <ProductImage src={product.image} />
         <ProductMeta product={product} matches={matches} />
         <ProductActionsWrapper>

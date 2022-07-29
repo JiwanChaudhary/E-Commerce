@@ -33,7 +33,7 @@ export default function SingleDesktopProduct({ product, matches }) {
   };
   return (
     <>
-      <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => showProductDetailDialog()}>
         <ProductImage src={product.image} />
         <ProductFavButton isFav={0}>
           <FavoriteIcon />

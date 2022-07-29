@@ -15,6 +15,10 @@ import { styled } from "@mui/system";
 import { useTheme } from "@mui/material/styles";
 import { Product, ProductImage } from "../../styles/products";
 import IncreDecre from "../ui";
+import FacebookIcon from "@mui/icons-material/Facebook"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import InstagramIcon from "@mui/icons-material/Instagram"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 
 function SlideTransition(props) {
   return <Slide direction="down" {...props} />;
@@ -83,6 +87,15 @@ export default function ProductDetail({ open, onClose, product }) {
             >
               <IncreDecre />
               <Button variant="contained">Add to cart</Button>
+            </Box>
+            <Box display="flex" alignItems={"center"} sx={{mt: 4, color: Colors.light}}>
+                <FavoriteIcon sx={{mr: 2}} />
+                Add to wishlist
+            </Box>
+            <Box sx={{mt: 4, color: Colors.light}}>
+                <FacebookIcon />
+                <TwitterIcon sx={{pl: theme.spacing(4)}} />
+                <InstagramIcon sx={{pl: theme.spacing(4)}} />
             </Box>
           </ProductDetailInfoWrapper>
         </ProductDetailWrapper>
