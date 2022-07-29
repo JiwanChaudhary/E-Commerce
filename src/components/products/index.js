@@ -31,7 +31,7 @@ export default function Products() {
     <Container>
       <Grid
         container
-        spacing={{ xs: 2, md: 3 }}
+        spacing={{ xs: 1, md: 3 }}
         justifyContent={"center"}
         sx={{ margin: "20px 4px 10px 4px" }}
         columns={{ xs: 4, sm: 8, md: 12 }}

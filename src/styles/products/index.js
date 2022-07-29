@@ -20,7 +20,7 @@ export const ProductImage = styled("img")(({ src, theme }) => ({
   padding: "10px",
   [theme.breakpoints.down("md")]: {
     width: "80%",
-    padding: "24px",
+    padding: "18px",
   },
 }));
 
