@@ -29,12 +29,6 @@ function App() {
           <AppDrawer />
           <SearchBox />
         </UIProvider>
-        {/* 
-        title
-        footer
-        searchbox
-        appdrawer
-        */}
       </Container>
     </ThemeProvider>
   );

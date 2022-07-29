@@ -18,7 +18,6 @@ export default function SingleProduct({ product, matches }) {
   const [
     ProductDetailDialog,
     showProductDetailDialog,
-    closeProductDetailDialog,
   ] = useDialogModal(ProductDetail);
 
   return (

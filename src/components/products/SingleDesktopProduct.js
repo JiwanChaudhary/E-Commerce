@@ -21,7 +21,6 @@ export default function SingleDesktopProduct({ product, matches }) {
   const [
     ProductDetailDialog,
     showProductDetailDialog,
-    closeProductDetailDialog,
   ] = useDialogModal(ProductDetail);
 
   const handleMouseEnter = () => {
