@@ -13,12 +13,15 @@ import ShareIcon from "@mui/icons-material/Share";
 import FitScreenIcon from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/unseDialogModal";
 import ProductDetail from "../productdetail";
+import useCart from "../../hooks/useCart";
 
 export default function SingleProduct({ product, matches }) {
   const [
     ProductDetailDialog,
     showProductDetailDialog,
   ] = useDialogModal(ProductDetail);
+
+  const {addToCart, addToCartText} = useCart(product);
 
   return (
     <>
@@ -40,7 +43,7 @@ export default function SingleProduct({ product, matches }) {
         </ProductActionsWrapper>
       </Product>
 
-      <ProductAddToCart variant="contained">Add to Cart</ProductAddToCart>
+      <ProductAddToCart onClick={addToCart} variant="contained">{addToCartText}</ProductAddToCart>
       <ProductDetailDialog product={product} />
     </>
   );

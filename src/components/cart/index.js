@@ -4,6 +4,7 @@ import {
   Button,
   Divider,
   Drawer,
+  IconButton,
   Paper,
   Typography,
   useMediaQuery,
@@ -11,9 +12,13 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useUIContext } from "../../context/ui";
 import { Colors } from "../../styles/theme";
+import CloseIcon from "@mui/icons-material/Close";
+import useCart from "../../hooks/useCart";
 
 export default function Cart() {
-  const { cart, setCart, showCart, setShowCart } = useUIContext();
+  const { cart, showCart, setShowCart } = useUIContext();
+
+  const { addToCart } = useCart(cart);
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -29,13 +34,22 @@ export default function Cart() {
         <Avatar src={item.image} sx={{ width: 96, height: 96, mr: 2 }} />
         <Box display="flex" flexDirection="column">
           <Typography variant="h6">{item.name}</Typography>
-          <Typography variant="subtitle2">{item.description}</Typography>
+          <Typography variant="body1">${item.price}</Typography>
+          {!matches && (
+            <Typography variant="subtitle2">{item.description}</Typography>
+          )}
         </Box>
-        <Typography variant="body1" justifyContent="end">
-          ${item.price}
-        </Typography>
+        <IconButton>
+          <CloseIcon />
+        </IconButton>
       </Box>
-      <Divider variant="inset" />
+      {matches && (
+        <Typography variant="subtitle2">{item.description}</Typography>
+      )}
+      <Divider
+        variant={matches ? "fullWidth" : "inset"}
+        sx={{ mt: matches ? 1 : 0 }}
+      />
     </Box>
   ));
 
@@ -46,38 +60,55 @@ export default function Cart() {
       anchor="right"
       PaperProps={{
         sx: {
-          width: 500,
+          width: matches ? "100%" : 500,
           background: Colors.light_gray,
           borderRadius: 0,
         },
       }}
     >
-      <Box
-        sx={{ p: 4 }}
-        display="flex"
-        justifyContent={"center"}
-        alignItems="center"
-        flexDirection={"column"}
-      >
-        <Typography variant="h3" color={Colors.black}>
-          Your Cart
-        </Typography>
-        <Typography variant="body1" color={Colors.muted}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem in, magnam corporis cupiditate pariatur inventore!
-        </Typography>
-        <Paper
-          elevation={0}
-          sx={{
-            mt: 2,
-            width: "90%",
-            padding: 2,
-          }}
+      {cart.length > 0 && addToCart ? (
+        <Box
+          sx={{ p: 4 }}
+          display="flex"
+          justifyContent={"center"}
+          alignItems="center"
+          flexDirection={"column"}
         >
-          {cartContent}
-        </Paper>
-        <Button sx={{mt: 4}} variant="contained">Proceed to payment</Button>
-      </Box>
+          <Typography variant="h3" color={Colors.black}>
+            Your Cart
+          </Typography>
+          <Typography variant="body1" color={Colors.muted}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem in, magnam corporis cupiditate pariatur inventore!
+          </Typography>
+          <Paper
+            elevation={0}
+            sx={{
+              mt: 2,
+              width: "90%",
+              padding: 2,
+            }}
+          >
+            {cartContent}
+          </Paper>
+          <Button sx={{ mt: 4 }} variant="contained">
+            Proceed to payment
+          </Button>
+        </Box>
+      ) : (
+        <Box
+          sx={{ p: 4 }}
+          display="flex"
+          justifyContent={"center"}
+          alignItems="center"
+          flexDirection={"column"}
+        >
+          <Typography variant={matches ? "h5" : "h3"} color={Colors.black}>
+            Your Cart is Empty
+          </Typography>
+        </Box>
+      )}
+      <Button onClick={() => setShowCart(false)}>Close</Button>
     </Drawer>
   );
 }
