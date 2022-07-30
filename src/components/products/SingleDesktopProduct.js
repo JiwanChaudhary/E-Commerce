@@ -19,12 +19,13 @@ import useCart from "../../hooks/useCart";
 export default function SingleDesktopProduct({ product, matches }) {
   const [showOptions, setShowOptions] = useState(false);
 
+
   const [
     ProductDetailDialog,
     showProductDetailDialog,
   ] = useDialogModal(ProductDetail);
 
-  const { addToCart, addToCartText } = useCart(product);
+  const { addToCart, addToCartText, addToFavorite } = useCart(product);
 
   const handleMouseEnter = () => {
     setShowOptions(true);
@@ -33,12 +34,16 @@ export default function SingleDesktopProduct({ product, matches }) {
   const handleMouseLeave = () => {
     setShowOptions(false);
   };
+
+
   return (
     <>
       <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ProductImage src={product.image} />
-        <ProductFavButton isFav={0}>
+        <ProductFavButton isFav={0} onClick={addToFavorite} >
+
           <FavoriteIcon />
+
         </ProductFavButton>
         {showOptions && (
           <ProductAddToCart onClick={addToCart} show={showOptions} variant="contained">

@@ -8,6 +8,8 @@ export const UIProvider = ({ children }) => {
   const [showSearchBox, setShowSearchBox] = useState(false);
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const [favorite, setFavorite] = useState([]);
+  const [showFavorite, setShowFavorite] = useState(false);
 
   const value = {
     drawerOpen,
@@ -18,6 +20,10 @@ export const UIProvider = ({ children }) => {
     setCart,
     showCart,
     setShowCart,
+    favorite,
+    setFavorite,
+    showFavorite,
+    setShowFavorite,
   };
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;

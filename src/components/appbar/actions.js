@@ -13,7 +13,7 @@ import { useUIContext } from "../../context/ui";
 export default function Actions({ matches }) {
 
 
-  const { cart, setShowCart } = useUIContext();
+  const { cart, setShowCart, favorite } = useUIContext();
 
   const Component = matches
     ? ActionIconsContainerMobile
@@ -54,7 +54,9 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <FavoriteIcon />
+            <Badge badgeContent={favorite && favorite.length} color="error">
+              <FavoriteIcon/>
+            </Badge>
           </ListItemIcon>
         </ListItemButton>
 

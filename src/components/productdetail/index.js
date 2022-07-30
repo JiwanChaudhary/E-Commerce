@@ -19,6 +19,7 @@ import FacebookIcon from "@mui/icons-material/Facebook"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import InstagramIcon from "@mui/icons-material/Instagram"
 import FavoriteIcon from "@mui/icons-material/Favorite"
+import useCart from "../../hooks/useCart";
 
 function SlideTransition(props) {
   return <Slide direction="down" {...props} />;
@@ -37,6 +38,9 @@ const ProductDetailInfoWrapper = styled(Box)(() => ({
 }));
 
 export default function ProductDetail({ open, onClose, product }) {
+
+  const { addToCart, addToCartText, addToFavorite } = useCart(product);
+
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -57,7 +61,7 @@ export default function ProductDetail({ open, onClose, product }) {
           justifyContent={"space-between"}
           alignItems="center"
         >
-          Product title
+          {product.name}
           <IconButton onClick={onClose}>
             <CloseIcon />
           </IconButton>
@@ -86,16 +90,18 @@ export default function ProductDetail({ open, onClose, product }) {
               alignItem="center"
             >
               <IncreDecre />
-              <Button variant="contained">Add to cart</Button>
+              <Button variant="contained" onClick={addToCart}>{addToCartText}</Button>
             </Box>
-            <Box display="flex" alignItems={"center"} sx={{mt: 4, color: Colors.light}}>
-                <FavoriteIcon sx={{mr: 2}} />
-                Add to wishlist
+            <Box display="flex" alignItems={"center"} sx={{ mt: 4, color: Colors.light }} >
+              <IconButton sx={{ mr: 2 }} onClick={addToFavorite} >
+                <FavoriteIcon />
+              </IconButton>
+              Add to wishlist
             </Box>
-            <Box sx={{mt: 4, color: Colors.light}}>
-                <FacebookIcon />
-                <TwitterIcon sx={{pl: theme.spacing(4)}} />
-                <InstagramIcon sx={{pl: theme.spacing(4)}} />
+            <Box sx={{ mt: 4, color: Colors.light }}>
+              <FacebookIcon />
+              <TwitterIcon sx={{ pl: theme.spacing(4) }} />
+              <InstagramIcon sx={{ pl: theme.spacing(4) }} />
             </Box>
           </ProductDetailInfoWrapper>
         </ProductDetailWrapper>

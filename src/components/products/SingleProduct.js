@@ -21,16 +21,16 @@ export default function SingleProduct({ product, matches }) {
     showProductDetailDialog,
   ] = useDialogModal(ProductDetail);
 
-  const {addToCart, addToCartText} = useCart(product);
+  const { addToCart, addToCartText, addToFavorite } = useCart(product);
 
   return (
     <>
-      <Product onClick={() => showProductDetailDialog()}>
+      <Product>
         <ProductImage src={product.image} />
         <ProductMeta product={product} matches={matches} />
         <ProductActionsWrapper>
           <Stack direction="row">
-            <ProductFavButton isFav={0}>
+            <ProductFavButton isFav={0} onClick={addToFavorite}>
               <FavoriteIcon />
             </ProductFavButton>
             <ProductActionButton>

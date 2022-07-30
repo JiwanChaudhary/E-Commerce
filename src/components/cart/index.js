@@ -14,6 +14,7 @@ import { useUIContext } from "../../context/ui";
 import { Colors } from "../../styles/theme";
 import CloseIcon from "@mui/icons-material/Close";
 import useCart from "../../hooks/useCart";
+import IncreDecre from "../../components/ui";
 
 export default function Cart() {
   const { cart, showCart, setShowCart } = useUIContext();
@@ -43,13 +44,22 @@ export default function Cart() {
           <CloseIcon />
         </IconButton>
       </Box>
+      {!matches && (
+        <Box display="flex" justifyContent={"space-between"}>
+          <IncreDecre /> 
+          <Button variant="contained">Buy Now</Button>
+        </Box>
+      )}
       {matches && (
         <Typography variant="subtitle2">{item.description}</Typography>
       )}
-      <Divider
-        variant={matches ? "fullWidth" : "inset"}
-        sx={{ mt: matches ? 1 : 0 }}
-      />
+      {matches && (
+        <Box display="flex" justifyContent={"space-between"}>
+          <IncreDecre />
+          <Button variant="contained">Buy Now</Button>
+        </Box>
+      )}
+      <Divider variant="fullWidth" sx={{ mt: 1 }} />
     </Box>
   ));
 

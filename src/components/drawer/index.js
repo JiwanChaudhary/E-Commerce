@@ -31,7 +31,7 @@ export default function AppDrawer() {
           />
         </DrawerCloseButton>
       )}
-      <Drawer open={drawerOpen}>
+      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <List>
           <ListItemButton>
             <ListItemText>Home</ListItemText>
