@@ -1,8 +1,10 @@
 import {
   Avatar,
   Box,
+  Button,
   Divider,
   Drawer,
+  Paper,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -64,7 +66,17 @@ export default function Cart() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem in, magnam corporis cupiditate pariatur inventore!
         </Typography>
-        {cartContent}
+        <Paper
+          elevation={0}
+          sx={{
+            mt: 2,
+            width: "90%",
+            padding: 2,
+          }}
+        >
+          {cartContent}
+        </Paper>
+        <Button sx={{mt: 4}} variant="contained">Proceed to payment</Button>
       </Box>
     </Drawer>
   );
