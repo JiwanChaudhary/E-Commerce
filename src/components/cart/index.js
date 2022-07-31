@@ -41,12 +41,12 @@ export default function Cart() {
           )}
         </Box>
         <IconButton>
-          <CloseIcon />
+          <CloseIcon  />
         </IconButton>
       </Box>
       {!matches && (
         <Box display="flex" justifyContent={"space-between"}>
-          <IncreDecre /> 
+          <IncreDecre />
           <Button variant="contained">Buy Now</Button>
         </Box>
       )}
